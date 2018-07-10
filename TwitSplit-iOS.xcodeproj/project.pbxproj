@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B47359E20F50166001525D6 /* TwitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B47359D20F50166001525D6 /* TwitCell.swift */; };
+		3B4735A120F5022A001525D6 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4735A020F5022A001525D6 /* Tweet.swift */; };
 		3B91140E20F4B05F00EAC4D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B91140D20F4B05F00EAC4D3 /* AppDelegate.swift */; };
 		3B91141020F4B05F00EAC4D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B91140F20F4B05F00EAC4D3 /* ViewController.swift */; };
 		3B91141320F4B05F00EAC4D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B91141120F4B05F00EAC4D3 /* Main.storyboard */; };
@@ -14,6 +16,7 @@
 		3B91141820F4B06000EAC4D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B91141620F4B06000EAC4D3 /* LaunchScreen.storyboard */; };
 		3B91142320F4B06100EAC4D3 /* TwitSplit_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B91142220F4B06100EAC4D3 /* TwitSplit_iOSTests.swift */; };
 		3B91142E20F4B06100EAC4D3 /* TwitSplit_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B91142D20F4B06100EAC4D3 /* TwitSplit_iOSUITests.swift */; };
+		3B91144220F4B7DD00EAC4D3 /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B91144120F4B7DD00EAC4D3 /* UIViewController+extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B47359D20F50166001525D6 /* TwitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitCell.swift; sourceTree = "<group>"; };
+		3B4735A020F5022A001525D6 /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		3B91140A20F4B05F00EAC4D3 /* TwitSplit-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TwitSplit-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B91140D20F4B05F00EAC4D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B91140F20F4B05F00EAC4D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +52,7 @@
 		3B91142920F4B06100EAC4D3 /* TwitSplit-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TwitSplit-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B91142D20F4B06100EAC4D3 /* TwitSplit_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitSplit_iOSUITests.swift; sourceTree = "<group>"; };
 		3B91142F20F4B06100EAC4D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B91144120F4B7DD00EAC4D3 /* UIViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +80,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B47359C20F5014C001525D6 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				3B47359D20F50166001525D6 /* TwitCell.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		3B47359F20F50217001525D6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3B4735A020F5022A001525D6 /* Tweet.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3B4735A220F50347001525D6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				3B91144120F4B7DD00EAC4D3 /* UIViewController+extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		3B91140120F4B05F00EAC4D3 = {
 			isa = PBXGroup;
 			children = (
@@ -98,11 +128,14 @@
 			isa = PBXGroup;
 			children = (
 				3B91140D20F4B05F00EAC4D3 /* AppDelegate.swift */,
-				3B91140F20F4B05F00EAC4D3 /* ViewController.swift */,
+				3B47359F20F50217001525D6 /* Model */,
+				3B91144020F4B44C00EAC4D3 /* ViewControllers */,
+				3B47359C20F5014C001525D6 /* CustomViews */,
 				3B91141120F4B05F00EAC4D3 /* Main.storyboard */,
 				3B91141420F4B06000EAC4D3 /* Assets.xcassets */,
 				3B91141620F4B06000EAC4D3 /* LaunchScreen.storyboard */,
 				3B91141920F4B06000EAC4D3 /* Info.plist */,
+				3B4735A220F50347001525D6 /* Extension */,
 			);
 			path = "TwitSplit-iOS";
 			sourceTree = "<group>";
@@ -123,6 +156,14 @@
 				3B91142F20F4B06100EAC4D3 /* Info.plist */,
 			);
 			path = "TwitSplit-iOSUITests";
+			sourceTree = "<group>";
+		};
+		3B91144020F4B44C00EAC4D3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3B91140F20F4B05F00EAC4D3 /* ViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +298,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B91141020F4B05F00EAC4D3 /* ViewController.swift in Sources */,
+				3B4735A120F5022A001525D6 /* Tweet.swift in Sources */,
+				3B91144220F4B7DD00EAC4D3 /* UIViewController+extension.swift in Sources */,
 				3B91140E20F4B05F00EAC4D3 /* AppDelegate.swift in Sources */,
+				3B47359E20F50166001525D6 /* TwitCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,7 +474,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "TwitSplit-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -438,6 +483,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.md.TwitSplit-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -447,7 +493,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "TwitSplit-iOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -455,6 +502,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.md.TwitSplit-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
