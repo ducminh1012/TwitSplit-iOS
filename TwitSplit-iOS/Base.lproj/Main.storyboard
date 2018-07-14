@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,29 +24,50 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TwitCell" textLabel="Lst-io-mDo" detailTextLabel="FA5-gu-aXy" rowHeight="46" style="IBUITableViewCellStyleSubtitle" id="Pt3-ZI-gZM" customClass="TwitCell" customModule="TwitSplit_iOS" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="46"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TwitCell" rowHeight="100" id="Pt3-ZI-gZM" customClass="TwitCell" customModule="TwitSplit_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pt3-ZI-gZM" id="Qf3-gr-XgX">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="45.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lst-io-mDo">
-                                                    <rect key="frame" x="15" y="6" width="33.5" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZt-9d-s3L">
+                                                    <rect key="frame" x="75" y="26" width="275" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FA5-gu-aXy">
-                                                    <rect key="frame" x="15" y="26.5" width="33" height="14.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UfK-sp-X70">
+                                                    <rect key="frame" x="75" y="55" width="275" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="wGD-yg-8Mz">
+                                                    <rect key="frame" x="15" y="21" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="OXa-Ll-9o1"/>
+                                                        <constraint firstAttribute="width" secondItem="wGD-yg-8Mz" secondAttribute="height" id="ijw-LQ-Tk1"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="IZt-9d-s3L" firstAttribute="top" secondItem="Qf3-gr-XgX" secondAttribute="topMargin" constant="15" id="5qV-qe-gwL"/>
+                                                <constraint firstItem="IZt-9d-s3L" firstAttribute="leading" secondItem="wGD-yg-8Mz" secondAttribute="trailing" constant="10" id="95K-xq-9HS"/>
+                                                <constraint firstItem="UfK-sp-X70" firstAttribute="leading" secondItem="IZt-9d-s3L" secondAttribute="leading" id="Eta-Dw-kwW"/>
+                                                <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="UfK-sp-X70" secondAttribute="bottom" constant="10" id="PHP-QW-dw2"/>
+                                                <constraint firstItem="wGD-yg-8Mz" firstAttribute="top" secondItem="Qf3-gr-XgX" secondAttribute="topMargin" constant="10" id="Pcc-Qr-BJK"/>
+                                                <constraint firstItem="wGD-yg-8Mz" firstAttribute="leading" secondItem="Qf3-gr-XgX" secondAttribute="leadingMargin" id="bL4-KP-f6X"/>
+                                                <constraint firstItem="UfK-sp-X70" firstAttribute="top" secondItem="IZt-9d-s3L" secondAttribute="bottom" constant="8" id="nHm-TS-xnm"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="IZt-9d-s3L" secondAttribute="trailing" constant="10" id="riX-Fd-UYh"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="UfK-sp-X70" secondAttribute="trailing" constant="10" id="tzy-Y9-vAu"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="avatarImageView" destination="wGD-yg-8Mz" id="3xO-j3-3YO"/>
+                                            <outlet property="messageLabel" destination="UfK-sp-X70" id="zX3-hy-Niw"/>
+                                            <outlet property="userNameLabel" destination="IZt-9d-s3L" id="Myw-AS-Rjy"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -92,4 +115,7 @@
             <point key="canvasLocation" x="117.59999999999999" y="-579.76011994002999"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="avatar" width="1280" height="1024"/>
+    </resources>
 </document>

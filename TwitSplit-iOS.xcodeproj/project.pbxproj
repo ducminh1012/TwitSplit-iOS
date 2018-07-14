@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B1E806A20FA60280078CB43 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1E806920FA60280078CB43 /* Global.swift */; };
 		3B47359E20F50166001525D6 /* TwitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B47359D20F50166001525D6 /* TwitCell.swift */; };
 		3B4735A120F5022A001525D6 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4735A020F5022A001525D6 /* Tweet.swift */; };
 		3B91140E20F4B05F00EAC4D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B91140D20F4B05F00EAC4D3 /* AppDelegate.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B1E806920FA60280078CB43 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		3B47359D20F50166001525D6 /* TwitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitCell.swift; sourceTree = "<group>"; };
 		3B4735A020F5022A001525D6 /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		3B91140A20F4B05F00EAC4D3 /* TwitSplit-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TwitSplit-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,12 +98,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		3B4735A220F50347001525D6 /* Extension */ = {
+		3B4735A220F50347001525D6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				3B91144120F4B7DD00EAC4D3 /* UIViewController+extension.swift */,
 			);
-			path = Extension;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		3B91140120F4B05F00EAC4D3 = {
@@ -127,6 +129,7 @@
 		3B91140C20F4B05F00EAC4D3 /* TwitSplit-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				3B1E806920FA60280078CB43 /* Global.swift */,
 				3B91140D20F4B05F00EAC4D3 /* AppDelegate.swift */,
 				3B47359F20F50217001525D6 /* Model */,
 				3B91144020F4B44C00EAC4D3 /* ViewControllers */,
@@ -135,7 +138,7 @@
 				3B91141420F4B06000EAC4D3 /* Assets.xcassets */,
 				3B91141620F4B06000EAC4D3 /* LaunchScreen.storyboard */,
 				3B91141920F4B06000EAC4D3 /* Info.plist */,
-				3B4735A220F50347001525D6 /* Extension */,
+				3B4735A220F50347001525D6 /* Extensions */,
 			);
 			path = "TwitSplit-iOS";
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 			files = (
 				3B91141020F4B05F00EAC4D3 /* ViewController.swift in Sources */,
 				3B4735A120F5022A001525D6 /* Tweet.swift in Sources */,
+				3B1E806A20FA60280078CB43 /* Global.swift in Sources */,
 				3B91144220F4B7DD00EAC4D3 /* UIViewController+extension.swift in Sources */,
 				3B91140E20F4B05F00EAC4D3 /* AppDelegate.swift in Sources */,
 				3B47359E20F50166001525D6 /* TwitCell.swift in Sources */,

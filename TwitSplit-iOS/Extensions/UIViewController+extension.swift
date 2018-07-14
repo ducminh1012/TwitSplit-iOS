@@ -9,8 +9,8 @@
 import UIKit
 
 extension UIViewController {
-    func showAddTweetPopup(handler: @escaping (String) -> Void) {
-        let alertController = UIAlertController(title: "Add new tweet", message: nil, preferredStyle: .alert)
+    func showAddTweetPopup(handler: @escaping (String) -> Void) -> UIAlertController {
+        let alertController = UIAlertController(title: "New Tweet (\(kMaxlength))", message: nil, preferredStyle: .alert)
         alertController.addTextField(configurationHandler: { (textField) in
             textField.placeholder = "Enter your message"
         })
@@ -26,5 +26,7 @@ extension UIViewController {
         alertController.addAction(cancelAction)
 
         self.present(alertController, animated: true, completion: nil)
+        
+        return alertController
     }
 }
