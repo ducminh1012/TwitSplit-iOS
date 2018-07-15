@@ -12,3 +12,5 @@ import UIKit
 let kPartIndicatorLength = 4 // "1/2 -> 2/2"
 let kMaxlength = 50
 let kUser = "Minh Duc"
+
+let kMainColor = "1DA1F2"

@@ -50,7 +50,7 @@ class ViewController: UIViewController {
     }
 
     private func addTweet(message: String) {
-        let tweet = Tweet(user: kUser, message: message)
+        let tweet = Tweet(user: kUser, message: message, time: Date())
         tweets.append(tweet)
         self.tableView.reloadData()
     }

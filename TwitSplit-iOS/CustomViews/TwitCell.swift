@@ -11,6 +11,7 @@ import UIKit
 class TwitCell: UITableViewCell {
     static let identifier = "TwitCell"
     
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
@@ -22,13 +23,13 @@ class TwitCell: UITableViewCell {
     }
 
     func setupUI() {
-        avatarImageView.layer.cornerRadius = avatarImageView.bounds.width / 2
         avatarImageView.clipsToBounds = true   
     }
     
     func setupData(tweet: Tweet) {
         avatarImageView.image = UIImage(named: "avatar.jpg")
-        userNameLabel?.text = tweet.user
-        messageLabel?.text = tweet.message
+        userNameLabel.text = tweet.user
+        messageLabel.text = tweet.message
+        timeLabel.text = tweet.time.toString()
     }
 }

@@ -32,15 +32,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZt-9d-s3L">
-                                                    <rect key="frame" x="75" y="26" width="275" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="75" y="26" width="43" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                    <color key="textColor" red="0.22922740544679865" green="0.22922740544679865" blue="0.22922740544679865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UfK-sp-X70">
-                                                    <rect key="frame" x="75" y="55" width="275" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="75" y="55" width="275" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.32625622669032206" green="0.32625622669032206" blue="0.32625622669032206" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="wGD-yg-8Mz">
@@ -50,22 +50,31 @@
                                                         <constraint firstAttribute="width" secondItem="wGD-yg-8Mz" secondAttribute="height" id="ijw-LQ-Tk1"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lAm-Up-TaG">
+                                                    <rect key="frame" x="317" y="28.5" width="33" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" red="0.46165940026545149" green="0.46165940026545149" blue="0.46165940026545149" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="IZt-9d-s3L" firstAttribute="top" secondItem="Qf3-gr-XgX" secondAttribute="topMargin" constant="15" id="5qV-qe-gwL"/>
                                                 <constraint firstItem="IZt-9d-s3L" firstAttribute="leading" secondItem="wGD-yg-8Mz" secondAttribute="trailing" constant="10" id="95K-xq-9HS"/>
                                                 <constraint firstItem="UfK-sp-X70" firstAttribute="leading" secondItem="IZt-9d-s3L" secondAttribute="leading" id="Eta-Dw-kwW"/>
+                                                <constraint firstItem="lAm-Up-TaG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IZt-9d-s3L" secondAttribute="trailing" constant="10" id="G9h-Xo-iMq"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="lAm-Up-TaG" secondAttribute="trailing" constant="10" id="MAO-JX-KPl"/>
                                                 <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="UfK-sp-X70" secondAttribute="bottom" constant="10" id="PHP-QW-dw2"/>
                                                 <constraint firstItem="wGD-yg-8Mz" firstAttribute="top" secondItem="Qf3-gr-XgX" secondAttribute="topMargin" constant="10" id="Pcc-Qr-BJK"/>
                                                 <constraint firstItem="wGD-yg-8Mz" firstAttribute="leading" secondItem="Qf3-gr-XgX" secondAttribute="leadingMargin" id="bL4-KP-f6X"/>
                                                 <constraint firstItem="UfK-sp-X70" firstAttribute="top" secondItem="IZt-9d-s3L" secondAttribute="bottom" constant="8" id="nHm-TS-xnm"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="IZt-9d-s3L" secondAttribute="trailing" constant="10" id="riX-Fd-UYh"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="UfK-sp-X70" secondAttribute="trailing" constant="10" id="tzy-Y9-vAu"/>
+                                                <constraint firstItem="lAm-Up-TaG" firstAttribute="centerY" secondItem="IZt-9d-s3L" secondAttribute="centerY" id="w5G-2J-wWN"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="avatarImageView" destination="wGD-yg-8Mz" id="3xO-j3-3YO"/>
                                             <outlet property="messageLabel" destination="UfK-sp-X70" id="zX3-hy-Niw"/>
+                                            <outlet property="timeLabel" destination="lAm-Up-TaG" id="3VI-U2-Uf4"/>
                                             <outlet property="userNameLabel" destination="IZt-9d-s3L" id="Myw-AS-Rjy"/>
                                         </connections>
                                     </tableViewCell>
