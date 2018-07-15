@@ -51,7 +51,7 @@ class ViewController: UIViewController {
 
     private func addTweet(message: String) {
         let tweet = Tweet(user: kUser, message: message, time: Date())
-        tweets.append(tweet)
+        tweets.insert(tweet, at: 0)
         self.tableView.reloadData()
     }
     
@@ -61,8 +61,12 @@ class ViewController: UIViewController {
     
     private func splitMessage(message: String) -> [String] {
         var result = [String]()
+        
+        var partId = 1
+        let partCount = message.count / kMaxlength + 1
+        
         if (checkWordLength(message: message)) { // Check invalid words
-            extractWords(message: message, result: &result)
+            extractWords(message: message, partId: &partId, partCount: partCount, result: &result)
             
         } else {
             showError(message: "Message contains word with over \(kMaxlength) characters")
@@ -73,31 +77,34 @@ class ViewController: UIViewController {
     }
     
     // Loop through message to extract words by length
-    private func extractWords(message: String, result: inout [String]) {
+    private func extractWords(message: String, partId: inout Int, partCount: Int, result: inout [String]) {
         var id = 1
         
         var words = message.components(separatedBy: " ")
         
         if (message.count <= kMaxlength - kPartIndicatorLength) {
-            result.append(message)
+            let newMessage = "\(partId)/\(partCount) \(message)"
+            result.append(newMessage)
         } else {
             
             while (id < words.count) {
                 id += 1
                 
-                let a = words[0..<id].joined(separator: " ")
+                let splitMessage = words[0..<id].joined(separator: " ")
                 
-                if (a.count > kMaxlength - kPartIndicatorLength) {
-                    let mm = id - 1
-                    result.append(words[0..<mm].joined(separator: " "))
-                    words = Array(words[mm...])
+                if (splitMessage.count > kMaxlength - kPartIndicatorLength) {
+                    let prevId = id - 1
+                    let m = "\(partId)/\(partCount) \(words[0..<prevId].joined(separator: " "))"
+                    result.append(m)
+                    words = Array(words[prevId...])
                     
+                    partId += 1
                     break
                 }
                 
             }
             let nextStr = words.joined(separator: " ")
-            extractWords(message: nextStr, result: &result)
+            extractWords(message: nextStr, partId: &partId, partCount: partCount, result: &result)
         }
         
     }
