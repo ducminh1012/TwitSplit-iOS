@@ -61,9 +61,12 @@ class ViewController: UIViewController {
     
     private func splitMessage(message: String) -> [String] {
         var result = [String]()
-        
-        extractWords(message: message, result: &result)
-        
+        if (checkWordLength(message: message)) { // Check invalid words
+            extractWords(message: message, result: &result)
+            
+        } else {
+            showError(message: "Message contains word with over \(kMaxlength) characters")
+        }
         print("result", result)
         
         return result
@@ -72,29 +75,43 @@ class ViewController: UIViewController {
     // Loop through message to extract words by length
     private func extractWords(message: String, result: inout [String]) {
         var id = 1
-        var m = message.components(separatedBy: " ")
+        
+        var words = message.components(separatedBy: " ")
         
         if (message.count <= kMaxlength - kPartIndicatorLength) {
             result.append(message)
         } else {
             
-            while (id < m.count) {
+            while (id < words.count) {
                 id += 1
                 
-                let a = m[0..<id].joined(separator: " ")
+                let a = words[0..<id].joined(separator: " ")
                 
                 if (a.count > kMaxlength - kPartIndicatorLength) {
                     let mm = id - 1
-                    result.append(m[0..<mm].joined(separator: " "))
-                    m = Array(m[mm...])
+                    result.append(words[0..<mm].joined(separator: " "))
+                    words = Array(words[mm...])
                     
                     break
                 }
                 
             }
-            let nextStr = m.joined(separator: " ")
+            let nextStr = words.joined(separator: " ")
             extractWords(message: nextStr, result: &result)
         }
+        
+    }
+    
+    private func checkWordLength(message: String) -> Bool {
+        let words = message.components(separatedBy: " ")
+        
+        for word in words {
+            if (word.count > kMaxlength) {
+                return false
+            }
+        }
+        
+        return true
     }
 }
 

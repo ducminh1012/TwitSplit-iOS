@@ -29,4 +29,13 @@ extension UIViewController {
         
         return alertController
     }
+    
+    func showError(message: String) -> Void {
+        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
 }
