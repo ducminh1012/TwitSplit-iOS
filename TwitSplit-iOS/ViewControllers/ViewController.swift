@@ -59,7 +59,7 @@ class ViewController: UIViewController {
         return message.count > kMaxlength
     }
     
-    private func splitMessage(message: String) -> [String] {
+    func splitMessage(message: String) -> [String] {
         var result = [String]()
         
         var partId = 1
