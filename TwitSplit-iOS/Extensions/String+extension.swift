@@ -11,7 +11,7 @@ import Foundation
 extension String {
     func toDate() -> Date {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy" //Your date format
+        dateFormatter.dateFormat = "HH:mm MM/dd" //Your date format
         dateFormatter.timeZone = TimeZone(abbreviation: "GMT+0:00")
         let date = dateFormatter.date(from: self)
         
