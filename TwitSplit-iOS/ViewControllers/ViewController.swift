@@ -12,11 +12,14 @@ class ViewController: UIViewController {
 
     // MARK: Actions
     @IBAction func onAddMessageButton(_ sender: UIBarButtonItem) {
+        
+        // Create new popup with message callback
         addTweetPopup = showAddTweetPopup { (message) in
             
             self.buildTweets(message: message)
         }
         
+        // Add the delegate to handle new characters event
         addTweetPopup?.textFields?.first?.delegate = self
     }
     
@@ -27,24 +30,27 @@ class ViewController: UIViewController {
     var tweets = [Tweet]()
     var addTweetPopup: UIAlertController?
     
+    // MARK: ViewController lifecyle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupTableView()
     }
 
+    // MARK: Private functions
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
     }
 
     private func addTweet(messages: [String]) {
+        
+        // Convert literal messages string -> Tweet objects
         let tweets = messages.map { (m) -> Tweet in
             let tweet = Tweet(user: kUser, message: m, time: Date())
             return tweet
         }
         self.tweets.append(contentsOf: tweets)
-        self.tableView.reloadData()
     }
     
     // Private function to build message to multiple tweets
@@ -52,6 +58,7 @@ class ViewController: UIViewController {
         do {
             let splitMessages = try splitMessage(message: message)
             self.addTweet(messages: splitMessages)
+            self.tableView.reloadData()
         } catch SplitError.inputError(let inputError) { // Catch input error
             showError(message: inputError)
         } catch (let unknownError) { // Catch anything else
@@ -67,6 +74,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         return tweets.count
     }
     
+    // Set up for auto height table view cell
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
@@ -76,7 +84,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TwitCell.identifier) as? TwitCell else { fatalError() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TwitCell.identifier) as? TwitCell else { fatalError("Can not dequeue cell with identifier \(TwitCell.identifier)") }
         let tweet = tweets[indexPath.row]
         cell.setupData(tweet: tweet)
         return cell
@@ -87,9 +95,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 extension ViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = textField.text else { return true }
-        let newLength = text.count + string.count - range.length
+        
+        // Calculate length of the message
+        let length = text.count + string.count - range.length
 
-        addTweetPopup?.title = "New Tweet (\(newLength))"
+        // Update popup title after insert new characters
+        addTweetPopup?.title = "New Tweet (\(length))"
 
         return true
     }

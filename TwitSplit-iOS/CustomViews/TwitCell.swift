@@ -9,23 +9,30 @@
 import UIKit
 
 class TwitCell: UITableViewCell {
-//    static let identifier = "TwitCell"
     
+    // MARK: Outlets
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
+    
+    // MARK: Cell lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
+        // Initialization code
         setupUI()
     }
 
-    func setupUI() {
-        avatarImageView.clipsToBounds = true   
+    // MARK: Private functions
+    private func setupUI() {
+        
+        // Make avatar circle frame
+        avatarImageView.clipsToBounds = true
+        avatarImageView.layer.cornerRadius = avatarImageView.bounds.width / 2
     }
     
+    // MARK: Internal function
     func setupData(tweet: Tweet) {
         avatarImageView.image = UIImage(named: "avatar.jpg")
         userNameLabel.text = tweet.user

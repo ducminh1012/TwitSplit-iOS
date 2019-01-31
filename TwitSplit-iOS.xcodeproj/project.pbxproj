@@ -21,7 +21,7 @@
 		3B91142320F4B06100EAC4D3 /* TwitSplit_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B91142220F4B06100EAC4D3 /* TwitSplit_iOSTests.swift */; };
 		3B91142E20F4B06100EAC4D3 /* TwitSplit_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B91142D20F4B06100EAC4D3 /* TwitSplit_iOSUITests.swift */; };
 		3B91144220F4B7DD00EAC4D3 /* UIViewController+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B91144120F4B7DD00EAC4D3 /* UIViewController+extension.swift */; };
-		6C7DB7952202B607007028A8 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7DB7942202B607007028A8 /* Utilities.swift */; };
+		6C7DB7952202B607007028A8 /* SplitMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7DB7942202B607007028A8 /* SplitMessage.swift */; };
 		6C7DB798220316EF007028A8 /* MessageValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7DB797220316EF007028A8 /* MessageValidator.swift */; };
 		6C7DB79A22033D9F007028A8 /* Identifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7DB79922033D9F007028A8 /* Identifier.swift */; };
 /* End PBXBuildFile section */
@@ -64,7 +64,7 @@
 		3B91142D20F4B06100EAC4D3 /* TwitSplit_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitSplit_iOSUITests.swift; sourceTree = "<group>"; };
 		3B91142F20F4B06100EAC4D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B91144120F4B7DD00EAC4D3 /* UIViewController+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extension.swift"; sourceTree = "<group>"; };
-		6C7DB7942202B607007028A8 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		6C7DB7942202B607007028A8 /* SplitMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitMessage.swift; sourceTree = "<group>"; };
 		6C7DB797220316EF007028A8 /* MessageValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageValidator.swift; sourceTree = "<group>"; };
 		6C7DB79922033D9F007028A8 /* Identifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -188,7 +188,7 @@
 		6C7DB7962202B638007028A8 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				6C7DB7942202B607007028A8 /* Utilities.swift */,
+				6C7DB7942202B607007028A8 /* SplitMessage.swift */,
 				6C7DB797220316EF007028A8 /* MessageValidator.swift */,
 				6C7DB79922033D9F007028A8 /* Identifier.swift */,
 			);
@@ -336,7 +336,7 @@
 				3B13ED9520FB2A8900DB4944 /* UIColor+extensions.swift in Sources */,
 				3B13ED9120FB27C600DB4944 /* Date+extensions.swift in Sources */,
 				3B91140E20F4B05F00EAC4D3 /* AppDelegate.swift in Sources */,
-				6C7DB7952202B607007028A8 /* Utilities.swift in Sources */,
+				6C7DB7952202B607007028A8 /* SplitMessage.swift in Sources */,
 				6C7DB79A22033D9F007028A8 /* Identifier.swift in Sources */,
 				3B47359E20F50166001525D6 /* TwitCell.swift in Sources */,
 			);

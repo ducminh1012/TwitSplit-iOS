@@ -1,12 +1,12 @@
 //
-//  Utilities.swift
+//  SplitMessage.swift
 //  TwitSplit-iOS
 //
 //  Created by MD on 1/31/19.
 //  Copyright © 2019 MD. All rights reserved.
 //
 
-// Split message into multiple segment with maximum 50 characters including indicator.
+// Split message into multiple segments with maximum 50 characters including indicator.
 func splitMessage(message: String) throws -> [String] {
     
     // The estimation for segment count
@@ -18,7 +18,7 @@ func splitMessage(message: String) throws -> [String] {
         throw emptyError
     }
     
-    // Validate
+    // Validate message with word excess max length
     if let excessError = validateWordExcessMaxLength(message: message) {
         throw excessError
     }
@@ -30,7 +30,10 @@ func splitMessage(message: String) throws -> [String] {
 // Loop through message to extract words by length
 private func extractWords(message: String, segmentCount: Int, limitCharacters: Int) -> [String] {
     
+    // Split message into words
     var words = message.components(separatedBy: " ")
+    
+    // Store last index where segment's length excess the max length
     var lastIndex = 0
     var results = [String]()
     // Loop through all

@@ -7,6 +7,7 @@
 //
 import Foundation
 
+// MARK: Simple Tweet model including user, message and time
 struct Tweet {
     var user: String
     var message: String
