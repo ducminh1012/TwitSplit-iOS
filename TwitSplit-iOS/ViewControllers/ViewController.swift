@@ -14,17 +14,7 @@ class ViewController: UIViewController {
     @IBAction func onAddMessageButton(_ sender: UIBarButtonItem) {
         addTweetPopup = showAddTweetPopup { (message) in
             
-            let needToSplit = self.checkToSplit(message: message)
-            
-            if (needToSplit) {
-                let splitMessages = self.splitMessage(message: message)
-                
-                splitMessages.forEach({ (message) in
-                    self.addTweet(message: message)
-                })
-            } else {
-                self.addTweet(message: message)
-            }
+            self.buildTweets(message: message)
         }
         
         addTweetPopup?.textFields?.first?.delegate = self
@@ -39,8 +29,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
+
         setupTableView()
     }
 
@@ -49,76 +38,25 @@ class ViewController: UIViewController {
         tableView.dataSource = self
     }
 
-    private func addTweet(message: String) {
-        let tweet = Tweet(user: kUser, message: message, time: Date())
-        tweets.insert(tweet, at: 0)
+    private func addTweet(messages: [String]) {
+        let tweets = messages.map { (m) -> Tweet in
+            let tweet = Tweet(user: kUser, message: m, time: Date())
+            return tweet
+        }
+        self.tweets.append(contentsOf: tweets)
         self.tableView.reloadData()
     }
     
-    private func checkToSplit(message: String) -> Bool {
-        return message.count > kMaxlength
-    }
-    
-    func splitMessage(message: String) -> [String] {
-        var result = [String]()
-        
-        var partId = 1
-        let partCount = message.count / kMaxlength + 1
-        
-        if (checkWordLength(message: message)) { // Check invalid words
-            extractWords(message: message, partId: &partId, partCount: partCount, result: &result)
-            
-        } else {
-            showError(message: "Message contains word with over \(kMaxlength) characters")
+    // Private function to build message to multiple tweets
+    private func buildTweets(message: String) {
+        do {
+            let splitMessages = try splitMessage(message: message)
+            self.addTweet(messages: splitMessages)
+        } catch SplitError.inputError(let inputError) { // Catch input error
+            showError(message: inputError)
+        } catch (let unknownError) { // Catch anything else
+            showError(message: unknownError.localizedDescription)
         }
-        print("result", result)
-        
-        return result
-    }
-    
-    // Loop through message to extract words by length
-    private func extractWords(message: String, partId: inout Int, partCount: Int, result: inout [String]) {
-        var id = 1
-        
-        var words = message.components(separatedBy: " ")
-        
-        if (message.count <= kMaxlength - kPartIndicatorLength) {
-            let newMessage = "\(partId)/\(partCount) \(message)"
-            result.append(newMessage)
-        } else {
-            
-            while (id < words.count) {
-                id += 1
-                
-                let splitMessage = words[0..<id].joined(separator: " ")
-                
-                if (splitMessage.count > kMaxlength - kPartIndicatorLength) {
-                    let prevId = id - 1
-                    let m = "\(partId)/\(partCount) \(words[0..<prevId].joined(separator: " "))"
-                    result.append(m)
-                    words = Array(words[prevId...])
-                    
-                    partId += 1
-                    break
-                }
-                
-            }
-            let nextStr = words.joined(separator: " ")
-            extractWords(message: nextStr, partId: &partId, partCount: partCount, result: &result)
-        }
-        
-    }
-    
-    private func checkWordLength(message: String) -> Bool {
-        let words = message.components(separatedBy: " ")
-        
-        for word in words {
-            if (word.count > kMaxlength) {
-                return false
-            }
-        }
-        
-        return true
     }
 }
 
@@ -150,13 +88,9 @@ extension ViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = textField.text else { return true }
         let newLength = text.count + string.count - range.length
-        
-        if (newLength <= kMaxlength) {
-            addTweetPopup?.title = "New Tweet (\(kMaxlength - newLength))"
-        } else {
-            let partCount = newLength / kMaxlength + 1
-            addTweetPopup?.title = "New Tweet (\(partCount)/\(partCount))"
-        }
+
+        addTweetPopup?.title = "New Tweet (\(newLength))"
+
         return true
     }
 }

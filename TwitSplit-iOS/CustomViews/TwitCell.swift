@@ -9,7 +9,7 @@
 import UIKit
 
 class TwitCell: UITableViewCell {
-    static let identifier = "TwitCell"
+//    static let identifier = "TwitCell"
     
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var avatarImageView: UIImageView!

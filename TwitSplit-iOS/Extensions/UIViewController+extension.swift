@@ -10,7 +10,7 @@ import UIKit
 
 extension UIViewController {
     func showAddTweetPopup(handler: @escaping (String) -> Void) -> UIAlertController {
-        let alertController = UIAlertController(title: "New Tweet (\(kMaxlength))", message: nil, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "New Tweet", message: nil, preferredStyle: .alert)
         alertController.addTextField(configurationHandler: { (textField) in
             textField.placeholder = "Enter your message"
         })
