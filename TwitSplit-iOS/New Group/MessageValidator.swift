@@ -16,7 +16,7 @@ enum SplitError: Error {
 func validateEmpty(message: String) -> SplitError? {
     
     if message.isEmpty {
-        return .inputError("Can not split message. Your message has words with have more than 50 characters.")
+        return .inputError("Can not split message. Your message is empty.")
     }
     
     return nil
