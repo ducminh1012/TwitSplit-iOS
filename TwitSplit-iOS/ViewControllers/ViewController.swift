@@ -100,7 +100,7 @@ extension ViewController: UITextFieldDelegate {
         let length = text.count + string.count - range.length
 
         // Update popup title after insert new characters
-        addTweetPopup?.title = "New Tweet (\(length))"
+        addTweetPopup?.title = length == 0 ? "New Tweet" : "New Tweet (\(length))"
 
         return true
     }

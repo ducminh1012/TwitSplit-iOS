@@ -9,18 +9,18 @@
 import Foundation
 import UIKit
 
-// MARK: Identifiable protocol
+// Identifiable protocol
 protocol Identifiable {
     static var identifier: String { get }
 }
 
-// MARK: Exntension
+// Extension
 extension Identifiable {
     static var identifier: String {
         return String(describing: self)
     }
 }
 
-// MARK: Conform identifier for UIView and UIViewController
+// Conform identifier for UIView and UIViewController
 extension UIViewController: Identifiable {}
 extension UIView: Identifiable {}

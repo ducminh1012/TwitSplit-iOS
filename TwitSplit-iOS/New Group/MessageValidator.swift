@@ -12,6 +12,7 @@ enum SplitError: Error {
     case inputError(String)
 }
 
+// Validate if message is empty
 func validateEmpty(message: String) -> SplitError? {
     
     if message.isEmpty {
@@ -21,13 +22,14 @@ func validateEmpty(message: String) -> SplitError? {
     return nil
 }
 
+// Validate if message have words with have more than 50 characters
 func validateWordExcessMaxLength(message: String) -> SplitError? {
     let words = message.components(separatedBy: .whitespaces)
     
     let excessWords = words.filter({$0.count > kMaxlength})
         
     guard excessWords.isEmpty else {
-        return .inputError("Can not split message. Your message has words with have more than 50 characters.")
+        return .inputError("Can not split message. Your message has one or more words with have more than 50 characters.")
     }
     
     return nil

@@ -9,10 +9,6 @@
 // Split message into multiple segments with maximum 50 characters including indicator.
 func splitMessage(message: String) throws -> [String] {
     
-    // The estimation for segment count
-    // We will increase this by 1 each recursion call to find out the exactly number
-    let segmentCount = message.count / kMaxlength
-
     // Validate empty message
     if let emptyError = validateEmpty(message: message) {
         throw emptyError
@@ -23,49 +19,70 @@ func splitMessage(message: String) throws -> [String] {
         throw excessError
     }
     
-    let res = extractWords(message: message, segmentCount: segmentCount, limitCharacters: kMaxlength)
-    return res
+    // Return message immediately if it's length <= max length
+    if (message.count <= kMaxlength) {
+        return [message]
+    }
+    
+    // The estimation for segment count
+    // We will increase this by 1 each recursion call to find out the exactly number
+    let segmentCount = message.count / kMaxlength
+    
+    return extractWords(message: message, segmentCount: segmentCount)
 }
 
 // Loop through message to extract words by length
-private func extractWords(message: String, segmentCount: Int, limitCharacters: Int) -> [String] {
+private func extractWords(message: String, segmentCount: Int) -> [String] {
     
     // Split message into words
     var words = message.components(separatedBy: " ")
+ 
+    var results: [String] = []
     
     // Store last index where segment's length excess the max length
     var lastIndex = 0
-    var results = [String]()
-    // Loop through all
+    
+    // Loop through the estimation segment count
     for i in 0..<segmentCount {
         
         // The segment indicator with a space suffix
         // Example: "9/10 "
         var indicator = "\(i + 1)/\(segmentCount) "
         
+        let nextIndex = lastIndex + (i != 0 && lastIndex < words.count - 1 ? 1 : 0)
         
-        let nextIndex = lastIndex + 1
-        
+        // Add words to next segment until excessing the max length
         for index in nextIndex...words.count - 1 {
-            let item = words[index]
             
-            let length = indicator.count + item.count + 1
+            let word = words[index]
             
-            if (length > kMaxlength + 1) {
+            // Break loop if length is over than limit
+            // (+ 1 because the last whitespace before trimming)
+            let length = indicator.count + word.count
+            
+            if (length > kMaxlength) {
                 break
             }
             
-            indicator += item + " "
+            // Add word to indicator
+            indicator += word + " "
+            
+            // Save the last index for next loop
             lastIndex = index
         }
         
+        // Add segment to results
         results.append(indicator.trimmingCharacters(in: .whitespaces))
+        
     }
     
-    if (lastIndex < words.count - 1) {
-        results = extractWords(message: message, segmentCount: segmentCount + 1, limitCharacters: kMaxlength)
+    // Call recursion until last index reach the end of words array
+    if lastIndex < words.count - 1 {
+        
+        // Increase segment count by 1
+        let total = segmentCount + 1
+        results = extractWords(message: message, segmentCount: total)
     }
     
     return results
-    
 }
