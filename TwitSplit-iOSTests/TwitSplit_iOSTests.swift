@@ -58,6 +58,30 @@ class TwitSplit_iOSTests: XCTestCase {
         
     }
     
+    // Test message with multiple space and lines. Words should be split by space.
+    func testMessageSplitBySpace() {
+        
+        // Given
+        let input = """
+
+
+                    This is    a message   with
+                    multiple whitespace and lines.
+                    """
+        let expect = ["1/2 This is a message with multiple whitespace and", "2/2 lines."]
+        // When
+        do {
+            let result = try splitMessage(message: input)
+        // Then
+            XCTAssertEqual(result, expect)
+        } catch SplitError.inputError(let errorMessage) {
+            XCTFail(errorMessage)
+        } catch (let error) {
+            XCTFail(error.localizedDescription)
+        }
+        
+    }
+    
     // Test empty message. Error should throw out.
     func testEmptyMessage() {
         
