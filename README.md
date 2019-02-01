@@ -15,6 +15,6 @@ The following functionality is complete:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://s33.postimg.cc/pnflgf0zz/twitsplit.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.postimg.cc/DyLmjSkR/line.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
