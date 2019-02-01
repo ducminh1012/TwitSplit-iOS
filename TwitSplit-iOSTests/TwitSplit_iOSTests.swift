@@ -114,6 +114,7 @@ class TwitSplit_iOSTests: XCTestCase {
         
     }
     
+    // Test long message with multiple whitespace and lines
     func testSuperLongMessage() {
         // Given
         let input =

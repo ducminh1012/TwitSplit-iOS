@@ -34,8 +34,9 @@ func splitMessage(message: String) throws -> [String] {
 // Loop through message to extract words by length
 private func extractWords(message: String, segmentCount: Int) -> [String] {
     
-    // Split message into words
-    var words = message.components(separatedBy: " ")
+    // Truncate duplicate whitespace and newline character
+    var words = message.components(separatedBy: .whitespacesAndNewlines)
+    words = words.filter { !$0.isEmpty }
  
     var results: [String] = []
     
